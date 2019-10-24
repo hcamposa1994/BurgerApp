@@ -11,7 +11,7 @@ const Toolbar = props => {
       <div className={classStyles.Logo}>
         <Logo />
       </div>
-      <nav>
+      <nav className={classStyles.DesktopOnly}>
         <NavigationItems />
       </nav>
     </header>

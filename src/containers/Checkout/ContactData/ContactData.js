@@ -9,10 +9,57 @@ import Input from "../../../components/UI/Input/Input";
 class ContactData extends Component {
   state = {
     name: "",
-    email: "",
-    address: {
-      street: "",
-      Zipcode: ""
+    orderForm: {
+      name: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Your Name"
+        },
+        value: ""
+      },
+      street: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Street"
+        },
+        value: ""
+      },
+      zipCode: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "ZIP Code"
+        },
+        value: ""
+      },
+      country: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Country"
+        },
+        value: ""
+      },
+      email: {
+        elementType: "input",
+        elementConfig: {
+          type: "email",
+          placeholder: "Your E-Mail"
+        },
+        value: ""
+      },
+      deliveryMethod: {
+        elementType: "select",
+        elementConfig: {
+          options: [
+            { value: "fastest", displayValue: "Fastest" },
+            { value: "cheapest", displayValue: "Cheapest" }
+          ]
+        },
+        value: ""
+      }
     },
     loading: false
   };
@@ -22,17 +69,7 @@ class ContactData extends Component {
     this.setState({ loading: true });
     const order = {
       ingredients: this.props.ingred,
-      price: this.props.money,
-      customer: {
-        name: "Herbert Campos",
-        address: {
-          street: "Test ave",
-          zipCode: "97071",
-          country: "USA"
-        },
-        email: "test@test.com"
-      },
-      deliveryMethod: "fastest"
+      price: this.props.money
     };
     axios
       .post("/orders.json", order)
@@ -49,10 +86,9 @@ class ContactData extends Component {
     let form = (
       <form>
         <Input
-          inputtype="input"
-          type="text"
-          name="name"
-          placeholder="Your Name"
+          elementType="..."
+          elementConfig="..."
+          value="..."
         />
         <Input
           inputtype="input"

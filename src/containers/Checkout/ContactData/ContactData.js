@@ -5,7 +5,6 @@ import Spinner from "../../../components/UI/Spinner/Spinner";
 import classStyles from "./ContactData.module.css";
 import axios from "../../../axios-orders";
 import Input from "../../../components/UI/Input/Input";
-import { formatResultsErrors } from "jest-message-util";
 
 class ContactData extends Component {
   state = {
@@ -113,17 +112,17 @@ class ContactData extends Component {
   };
 
   checkValidity = (value, rules) => {
-    let isValid = false;
+    let isValid = true;
 
     if (rules.required) {
-      isValid = value.trim() !== "";
+      isValid = value.trim() !== "" && isValid;
     }
 
     if (rules.minLength) {
-      isValid = value.length >= rules.minLength;
+      isValid = value.length >= rules.minLength && isValid;
     }
     if (rules.maxLength) {
-      isValid = value.length <= rules.maxLength;
+      isValid = value.length <= rules.maxLength && isValid;
     }
 
     return isValid;

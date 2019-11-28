@@ -58,10 +58,18 @@ const Input = props => {
       );
   }
 
+  let validationError = null;
+  if (props.invalid && props.touched) {
+    validationError = (
+      <p className={classStyles.ValidationError}>{props.errorMessage}</p>
+    );
+  }
+
   return (
     <div className={classStyles.Input}>
       <label className={classStyles.Label}>{props.label}</label>
       {inputElement}
+      {validationError}
     </div>
   );
 };

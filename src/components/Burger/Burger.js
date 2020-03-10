@@ -27,8 +27,6 @@ const Burger = props => {
 
   //const key in props.ingredients also works
   for (const [key] of Object.entries(props.ingredients)) {
-    // console.log(key) at this point, key represents the name of the objects such as bacon, cheese, etc
-    // console.log(props.ingredients[key]) this returns the quantity of the object such as 1 bacon or 2 cheeses
     for (let i = 0; i < props.ingredients[key]; i++) {
       transformedIngredients.push(
         <BurgerIngredient key={key + i} type={key} />

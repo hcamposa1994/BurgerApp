@@ -1,4 +1,3 @@
-import { delay } from "redux-saga/effects";
 import { put } from "redux-saga/effects";
 import axios from "../../axios-orders";
 
@@ -11,6 +10,6 @@ export function* initIngredientsSaga(action) {
     );
     yield put(actions.setIngredients(response.data));
   } catch (error) {
-    yield put(actions.fetchIngredientsFailed());
+    yield put(actions.fetchIngredientsFailed(error));
   }
 }
